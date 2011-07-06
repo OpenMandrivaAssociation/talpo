@@ -1,5 +1,5 @@
 %define name talpo
-%define version 0.0.20110701git44d9078
+%define version 0.0.20110706git72bbaba
 
 Name:		%{name}
 Version:	%{version}
@@ -13,7 +13,6 @@ Source0:	%{name}-%{version}.tar.bz2
 # [alex@portable-alex talpo (Mandriva)]$ git tag -l
 # 0.0.20110701
 # [alex@portable-alex talpo (Mandriva)]$ git archive --format=tar --prefix=talpo-$(git describe --tags)git$(git describe --always)/ master | bzip2 > /home/alex/BuildSystem/talpo/SOURCES/talpo-$(git describe --tags)git$(git describe --always).tar.bz2
-Patch0:		0001-Adding-install-target-to-Makefile.patch
 Requires:	gccmelt
 BuildArch:	noarch
 
@@ -31,7 +30,6 @@ compile-time complex and easy-to-use checking.
 
 %prep
 %setup -q
-%patch0 -p1 -b .makeinstall
 
 %build
 # Nothing to do here
