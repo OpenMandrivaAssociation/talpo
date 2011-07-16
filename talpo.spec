@@ -1,5 +1,5 @@
 %define name talpo
-%define version 0.0.20110708git6a72e12
+%define version 0.0.20110716git2658915
 
 Name:		%{name}
 Version:	%{version}
