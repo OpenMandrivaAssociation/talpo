@@ -1,5 +1,5 @@
 %define name talpo
-%define version 0.0.20110803.1
+%define version 0.0.20110803.1giteb99bb0
 
 Name:		%{name}
 Version:	%{version}
@@ -38,7 +38,7 @@ or need to have a look at it.
 %setup -q
 
 %build
-%make -f Makefile-plugin
+%make -f Makefile-plugin CC=gcc
 
 %install
 %makeinstall_std PREFIX=%{_prefix}/
