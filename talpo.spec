@@ -1,5 +1,5 @@
 %define name talpo
-%define version 0.0.20110803
+%define version 0.0.20110803.1
 
 Name:		%{name}
 Version:	%{version}
