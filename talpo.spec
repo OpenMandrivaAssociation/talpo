@@ -16,6 +16,14 @@ Requires:	%{name}-sources
 Requires:	%{name}-modules
 Requires:	gccmelt
 BuildRequires:	gccmelt
+## Needed because BuildRequires of gccmelt won't get installed
+## inside the building chroot
+BuildRequires:	gcc-plugin-devel
+BuildRequires:	gmp-devel
+BuildRequires:	ppl-devel
+BuildRequires:	ppl_c-devel
+BuildRequires:	mpfr-devel
+BuildRequires:	libmpc-devel
 
 %description
 GCC MELT is a GCC plugin providing a lispy domain specific
