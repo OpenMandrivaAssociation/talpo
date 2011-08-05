@@ -1,5 +1,8 @@
 %define name talpo
-%define version 0.0.20110803.1giteb99bb0
+%define version 0.0.20110805.5gitbe6de7d
+
+%define _meltsources %(gcc -print-file-name=plugin/melt-source)
+%define _meltmodules %(gcc -print-file-name=plugin/melt-modules)
 
 Name:		%{name}
 Version:	%{version}
@@ -9,6 +12,8 @@ Summary:	Talpo is GCC MELT user-programmable checker
 Group:		Development/C
 URL:		https://gitorious.org/%{name}/%{name}
 Source0:	%{name}-%{version}.tar.bz2
+Requires:	%{name}-sources
+Requires:	%{name}-modules
 Requires:	gccmelt
 BuildRequires:	gccmelt
 
@@ -25,23 +30,35 @@ Suggests:	gccmelt
 BuildArch:	noarch
 
 %description sources
-This packages contains Talpo's MELT sources files, if you want
-or need to have a look at it.
+This packages contains Talpo's MELT sources files.
+
+%package modules
+Summary:	Talpo's MELT modules
+Suggests:	gccmelt
+
+%description modules
+This packages contains Talpo's MELT modules files.
 
 %files
 %doc README
 
 %files sources
-%{_datadir}/gcc-melt/%{name}/*.melt
+%{_meltsources}/*.melt
+%{_meltsources}/*.c
+
+%files modules
+%{_meltmodules}/*.so
 
 %prep
 %setup -q
 
 %build
-%make -f Makefile-plugin CC=gcc
+# disable make -j for now
+# must have a new melt-module.mk which disables -j system wide before re-enabling here.
+make -f Makefile-plugin CC=gcc
 
 %install
-%makeinstall_std PREFIX=%{_prefix}/
+%makeinstall_std -f Makefile-plugin PREFIX=%{_prefix}/
 
 %clean
 rm -fr %{buildroot}
