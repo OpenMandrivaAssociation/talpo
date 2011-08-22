@@ -1,5 +1,5 @@
 %define name talpo
-%define version 0.0.20110822git31c0289
+%define version 0.0.20110822.3gite666bf3
 
 %define _meltsources %(gcc -print-file-name=plugin/melt-source)
 %define _meltmodules %(gcc -print-file-name=plugin/melt-modules)
@@ -12,6 +12,8 @@ Summary:	Talpo is GCC MELT user-programmable checker
 Group:		Development/C
 URL:		https://gitorious.org/%{name}/%{name}
 Source0:	%{name}-%{version}.tar.bz2
+Patch0:	0001-Install-modlis-files.patch
+Patch1:	0002-Adding-usr-bin-talpo-wrapper.patch
 
 Requires:	%{name}-sources
 Requires:	%{name}-modules
@@ -39,17 +41,25 @@ Suggests:	gccmelt
 BuildArch:	noarch
 
 %description sources
-This packages contains Talpo's MELT sources files.
+This package contains Talpo's MELT sources files.
 
 %package modules
 Summary:	Talpo's MELT modules
 Suggests:	gccmelt
 
 %description modules
-This packages contains Talpo's MELT modules files.
+This package contains Talpo's MELT modules files.
+
+%package doc
+Summary:	Talpo's Documentation
+Suggests:	gccmelt
+BuildArch:	noarch
+
+%description doc
+This package provides Talpo's documentation
 
 %files
-%doc README
+%{_bindir}/talpo
 
 %files sources
 %{_meltsources}/*.melt
@@ -57,6 +67,11 @@ This packages contains Talpo's MELT modules files.
 
 %files modules
 %{_meltmodules}/*.so
+%{_meltmodules}/*.modlis
+
+%files doc
+%doc README AdvancedREADME
+%{_docdir}/%{name}-doc/examples/
 
 %prep
 %setup -q
@@ -69,6 +84,13 @@ This packages contains Talpo's MELT modules files.
 make -f Makefile-plugin CC=gcc
 
 %install
+
+pushd examples
+for f in $(find . -type f); do
+	%{__install} -m644 -D $f %{buildroot}%{_docdir}/%{name}-doc/examples/$f
+done;
+popd
+
 %makeinstall_std -f Makefile-plugin PREFIX=%{_prefix}/
 
 %clean
