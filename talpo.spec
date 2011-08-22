@@ -1,5 +1,5 @@
 %define name talpo
-%define version 0.0.20110805.5gitbe6de7d
+%define version 0.0.20110822git31c0289
 
 %define _meltsources %(gcc -print-file-name=plugin/melt-source)
 %define _meltmodules %(gcc -print-file-name=plugin/melt-modules)
@@ -12,11 +12,6 @@ Summary:	Talpo is GCC MELT user-programmable checker
 Group:		Development/C
 URL:		https://gitorious.org/%{name}/%{name}
 Source0:	%{name}-%{version}.tar.bz2
-Patch0:	0001-Fix-bad-separator-in-Makefile-plugin.patch
-Patch1:	0002-Cleaner-handling-of-install-target.patch
-Patch2:	0003-Remove-creation-of-target-directory.patch
-Patch3:	0004-Removing-empty.c.patch
-Patch4:	0005-Fix-installation-path-for-MELT-0.8.patch
 
 Requires:	%{name}-sources
 Requires:	%{name}-modules
