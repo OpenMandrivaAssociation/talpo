@@ -1,5 +1,5 @@
 %define name talpo
-%define version 0.0.20110822.3gite666bf3
+%define version 0.0.20110822.4git6144eb5
 
 %define _meltsources %(gcc -print-file-name=plugin/melt-source)
 %define _meltmodules %(gcc -print-file-name=plugin/melt-modules)
@@ -14,6 +14,7 @@ URL:		https://gitorious.org/%{name}/%{name}
 Source0:	%{name}-%{version}.tar.bz2
 Patch0:	0001-Install-modlis-files.patch
 Patch1:	0002-Adding-usr-bin-talpo-wrapper.patch
+Patch2:	0003-Fix-talpo-wrapper-arguments-handling.patch
 
 Requires:	%{name}-sources
 Requires:	%{name}-modules
