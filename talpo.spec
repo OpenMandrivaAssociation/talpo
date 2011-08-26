@@ -1,12 +1,12 @@
 %define name talpo
-%define version 0.0.20110826git3a284d3
+%define version 0.0.20110826git3ca28e0
 
-%define _meltsources %(gcc -print-file-name=plugin/melt-source)
+%define _meltsources %(gcc -print-file-name=plugin/melt-sources)
 %define _meltmodules %(gcc -print-file-name=plugin/melt-modules)
 
 Name:		%{name}
 Version:	%{version}
-Release:	1
+Release:	3
 License:	GPLv3
 Summary:	Talpo is GCC MELT user-programmable checker
 Group:		Development/C
@@ -15,6 +15,8 @@ Source0:	%{name}-%{version}.tar.bz2
 Patch0:	0001-Install-modlis-files.patch
 Patch1:	0002-Adding-usr-bin-talpo-wrapper.patch
 Patch2:	0003-Fix-talpo-wrapper-arguments-handling.patch
+Patch3:	0004-Backport-read_strv.patch
+Patch4:	0005-Changes-for-MELT-0.9.patch
 
 Requires:	%{name}-sources
 Requires:	%{name}-modules
