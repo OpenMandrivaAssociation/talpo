@@ -1,12 +1,12 @@
 %define name talpo
-%define version 0.0.20110826git3ca28e0
+%define version 0.0.20110828.4gitd4d941f
 
 %define _meltsources %(gcc -print-file-name=plugin/melt-sources)
 %define _meltmodules %(gcc -print-file-name=plugin/melt-modules)
 
 Name:		%{name}
 Version:	%{version}
-Release:	3
+Release:	1
 License:	GPLv3
 Summary:	Talpo is GCC MELT user-programmable checker
 Group:		Development/C
@@ -17,6 +17,10 @@ Patch1:	0002-Adding-usr-bin-talpo-wrapper.patch
 Patch2:	0003-Fix-talpo-wrapper-arguments-handling.patch
 Patch3:	0004-Backport-read_strv.patch
 Patch4:	0005-Changes-for-MELT-0.9.patch
+Patch5:	0006-Fix-talpo-wrapper.patch
+Patch6:	0007-Cosmetic-fix-for-Makefile-plugin.patch
+Patch7:	0008-Fix-destination-for-modlis-files.patch
+Patch8:	0009-Fix-symlink-installation.patch
 
 Requires:	%{name}-sources
 Requires:	%{name}-modules
@@ -40,7 +44,8 @@ compile-time complex and easy-to-use checking.
 
 %package sources
 Summary:	Talpo's MELT sources
-Suggests:	gccmelt
+Requires:	gccmelt
+Requires:	%{name}
 BuildArch:	noarch
 
 %description sources
@@ -48,14 +53,14 @@ This package contains Talpo's MELT sources files.
 
 %package modules
 Summary:	Talpo's MELT modules
-Suggests:	gccmelt
+Requires:	gccmelt
+Requires:	%{name}
 
 %description modules
 This package contains Talpo's MELT modules files.
 
 %package doc
 Summary:	Talpo's Documentation
-Suggests:	gccmelt
 BuildArch:	noarch
 
 %description doc
@@ -67,10 +72,10 @@ This package provides Talpo's documentation
 %files sources
 %{_meltsources}/*.melt
 %{_meltsources}/*.c
+%{_meltsources}/*.modlis
 
 %files modules
 %{_meltmodules}/*.so
-%{_meltmodules}/*.modlis
 
 %files doc
 %doc README AdvancedREADME
