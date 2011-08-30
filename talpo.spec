@@ -1,5 +1,5 @@
 %define name talpo
-%define version 0.0.20110830gitdbc3cda
+%define version 0.0.20110830.1gitc75bc73
 
 %define _meltsources %(gcc -print-file-name=plugin/melt-sources)
 %define _meltmodules %(gcc -print-file-name=plugin/melt-modules)
@@ -12,15 +12,10 @@ Summary:	Talpo is GCC MELT user-programmable checker
 Group:		Development/C
 URL:		https://gitorious.org/%{name}/%{name}
 Source0:	%{name}-%{version}.tar.bz2
-Patch0:	0001-Install-modlis-files.patch
-Patch1:	0002-Adding-usr-bin-talpo-wrapper.patch
-Patch2:	0003-Fix-talpo-wrapper-arguments-handling.patch
-Patch3:	0004-Backport-read_strv.patch
-Patch4:	0005-Changes-for-MELT-0.9.patch
-Patch5:	0006-Fix-talpo-wrapper.patch
-Patch6:	0007-Cosmetic-fix-for-Makefile-plugin.patch
-Patch7:	0008-Fix-destination-for-modlis-files.patch
-Patch8:	0009-Fix-symlink-installation.patch
+Patch0:	0001-Changes-for-MELT-0.9.patch
+Patch1:	0002-Fix-destination-for-modlis-files.patch
+Patch2:	0003-Fix-symlink-installation.patch
+Patch3:	0004-Fix-talpo-wrapper.patch
 
 Requires:	%{name}-sources
 Requires:	%{name}-modules
