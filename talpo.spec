@@ -1,5 +1,5 @@
 %define name talpo
-%define version 0.0.20110914git65c4215
+%define version 0.0.20110914.1git65c4215
 
 %define _meltsources %(gcc -print-file-name=plugin/melt-sources)
 %define _meltmodules %(gcc -print-file-name=plugin/melt-modules)
