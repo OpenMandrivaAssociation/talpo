@@ -1,12 +1,12 @@
 %define name talpo
-%define version 0.0.20110830.3git65c4215
+%define version 0.0.20110914git65c4215
 
 %define _meltsources %(gcc -print-file-name=plugin/melt-sources)
 %define _meltmodules %(gcc -print-file-name=plugin/melt-modules)
 
 Name:		%{name}
 Version:	%{version}
-Release:	2
+Release:	1
 License:	GPLv3
 Summary:	Talpo is GCC MELT user-programmable checker
 Group:		Development/C
