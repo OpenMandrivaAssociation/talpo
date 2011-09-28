@@ -6,7 +6,7 @@
 
 Name:		%{name}
 Version:	%{version}
-Release:	1
+Release:	2
 License:	GPLv3
 Summary:	Talpo is GCC MELT user-programmable checker
 Group:		Development/C
