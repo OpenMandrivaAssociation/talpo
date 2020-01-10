@@ -75,7 +75,7 @@ This package provides Talpo's documentation
 %prep
 %setup -q
 
-%apply_patches
+%autopatch -p1
 
 %build
 # disable make -j for now
