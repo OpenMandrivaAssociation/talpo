@@ -16,6 +16,7 @@ Source0:	%{name}-%{version}.tar.bz2
 Requires:	%{name}-sources
 Requires:	%{name}-modules
 Requires:	gccmelt
+BuildRequires:	make
 BuildRequires:	gccmelt
 ## Needed because BuildRequires of gccmelt won't get installed
 ## inside the building chroot
